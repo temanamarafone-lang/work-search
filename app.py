@@ -1,4 +1,5 @@
-import streamlit as st import pandas as pd
+import streamlit as st 
+import pandas as pd
 st.set_page_config(page_title="Поиск компании сотрудника", page_icon="🔍", layout="centered")
 @st.cache_data def load_data(): file_path = 'Аут сентябрь.xlsx' df1 = pd.read_excel(file_path, sheet_name='Лист1') df2 = pd.read_excel(file_path, sheet_name='Лист2', header=None) df2.columns = ['Исполнитель', 'Головное предприятие'] full_df = pd.concat([df1, df2], ignore_index=True) return full_df
 try: df = load_data() except Exception as e: st.error(f"Не удалось загрузить файл базы данных: {e}") st.stop()
