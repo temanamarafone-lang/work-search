@@ -1,3 +1,0 @@
-streamlist
-pandas
-openpyxl
